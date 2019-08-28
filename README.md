@@ -1,2 +1,2 @@
 # p-a-c-rpg
-A simplitic point-and-click RPG.
+A simplistic point-and-click RPG.
