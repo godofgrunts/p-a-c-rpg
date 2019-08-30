@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SignalManager="*res://scripts/SignalManager.gd"
+WorldState="*res://scripts/WorldState.gd"
 
 [display]
 
