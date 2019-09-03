@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/controls/world_controller.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scenes/transitions/TransAnimations.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/controls/travel_button.gd" type="Script" id=3]
+[ext_resource path="res://scenes/transitions/TransAnimations.tscn" type="PackedScene" id=4]
 
 [node name="Town1Pub" type="Control"]
 anchor_right = 1.0
@@ -29,6 +30,8 @@ margin_right = 624.0
 margin_bottom = 222.0
 text = "Bartender"
 icon = ExtResource( 2 )
+script = ExtResource( 3 )
+SceneToGoTo = "res://scenes/maps/Town1PubBartender.tscn"
 
 [node name="Town1PubToilet" type="Button" parent="Locations"]
 margin_left = 228.0
@@ -38,4 +41,4 @@ margin_bottom = 212.0
 text = "Toilet"
 icon = ExtResource( 2 )
 
-[node name="TransAnimations" parent="." instance=ExtResource( 3 )]
+[node name="TransAnimations" parent="." instance=ExtResource( 4 )]

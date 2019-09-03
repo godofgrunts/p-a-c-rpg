@@ -1,0 +1,59 @@
+{
+	"Force" : 0,
+	"Random": 0,
+	"Nodes" :
+	 [
+        
+		{
+			"id"      : 0,
+            "name"    : "Bartender",
+            "is_player" : 0,
+			"text"    : "Who are you?",
+			"next_id" : 1,
+            "choices" : 
+            [
+				
+				{
+					"text"    : "I'm the main character!",
+					"next_id" : 1
+				},
+
+				{
+					"text"    : "Uh... Got to go!",
+					"next_id" : -1
+				}
+			]
+        },
+        
+		{
+			"id"        : 1,
+            "name"      : "Player",
+            "is_player" : 1,
+			"text"    : "I'm the player!",
+			"next_id" : 2,
+			"choices" : []
+
+		},
+
+		{
+			"id"      : 2,
+            "name"    : "Bartender",
+            "is_player" : 0,
+			"text"    : "Good for you!",
+			"next_id" : 3,
+			"choices" : []
+        },
+        
+		{
+			"id"      : 3,
+            "name"    : "Player",
+            "is_player" : 1,
+			"text"    : "Indeed it is good for me!",
+			"next_id" : -1,
+			"choices" : []
+		}
+
+
+	]
+
+}

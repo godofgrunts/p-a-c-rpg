@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/controls/dialogue_manager.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.309804, 0.309804, 0.309804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25, 0 ), Vector2( 8, 20 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "npc_fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("NPC:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 470, 0 ), Vector2( 480, 20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NPC:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.309804, 0.309804, 0.309804, 1 ) ]
+}
+
+[node name="Dialogue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+file_name = "res://dialogues/town1/dialogue_1.json"
+
+[node name="Player" type="Sprite" parent="."]
+self_modulate = Color( 0.309804, 0.309804, 0.309804, 1 )
+position = Vector2( 8, 20 )
+scale = Vector2( 2.09851, 4.40271 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="NPC" type="Sprite" parent="."]
+self_modulate = Color( 0.309804, 0.309804, 0.309804, 1 )
+position = Vector2( 480, 20 )
+scale = Vector2( 2.32625, 4.21516 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/player_fade = SubResource( 2 )
+
+[node name="AnimationNPC" type="AnimationPlayer" parent="."]
+anims/npc_fade = SubResource( 3 )
+
+[node name="DialogueUI" type="Panel" parent="."]
+margin_top = 232.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="DialogueName" type="RichTextLabel" parent="DialogueUI"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 628.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 616, 15 )
+text = "Sir Rupert Bartholomew III"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueUI"]
+margin_left = 12.0
+margin_top = 36.0
+margin_right = 557.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 545, 80 )
+text = "Hello World! Here be some text!"
+
+[node name="Control" type="Control" parent="DialogueUI"]
+margin_left = 564.0
+margin_top = 30.0
+margin_right = 628.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 64, 80 )
+
+[node name="DialogueButton" type="Button" parent="DialogueUI/Control"]
+margin_right = 67.0
+margin_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 64, 20 )
+text = "Choice 1"
+
+[node name="DialogueButton2" type="Button" parent="DialogueUI/Control"]
+margin_top = 24.0
+margin_right = 67.0
+margin_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 64, 20 )
+text = "Choice 2"
+
+[node name="DialogueButton3" type="Button" parent="DialogueUI/Control"]
+margin_top = 48.0
+margin_right = 67.0
+margin_bottom = 68.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 64, 20 )
+text = "Choice 3"
+
+[node name="DialogueButton4" type="Button" parent="DialogueUI/Control"]
+margin_top = 72.0
+margin_right = 67.0
+margin_bottom = 92.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 64, 20 )
+text = "Choice 4"
