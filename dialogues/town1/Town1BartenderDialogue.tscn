@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/dialogue_tree/scripts/dialogue.gd" type="Script" id=1]
+[ext_resource path="res://addons/dialogue_tree/assets/Icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/dialogue_tree/assets/ResIcon.png" type="Texture" id=3]
+[ext_resource path="res://addons/dialogue_tree/resource/dialogue_tree.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 3 )
+}
+connections = [ {
+"from": "StartNode",
+"from_port": 0,
+"to": "BasicDialogue",
+"to_port": 0
+}, {
+"from": "BasicDialogue",
+"from_port": 0,
+"to": "EndNode",
+"to_port": 0
+} ]
+Nodes = [ {
+"filename": "res://addons/dialogue_tree/scenes/EndNode.tscn",
+"name": "EndNode",
+"rect_size_x": 80.0,
+"rect_size_y": 55.0,
+"rect_x": 665.807,
+"rect_y": 179.0
+}, {
+"filename": "res://addons/dialogue_tree/scenes/StartNode.tscn",
+"name": "StartNode",
+"rect_size_x": 87.0,
+"rect_size_y": 55.0,
+"rect_x": 205.807,
+"rect_y": 199.0
+}, {
+"Actor": "Player",
+"Dialogue": "Hi.",
+"RefName": "plz",
+"filename": "res://addons/dialogue_tree/scenes/BasicDialogue.tscn",
+"name": "BasicDialogue",
+"rect_size_x": 170.0,
+"rect_size_y": 114.0,
+"rect_x": 365.807,
+"rect_y": 159.0
+} ]
+DialogueTree = {
+"dialogue": [ {
+"Actor": "Player",
+"Dialogue": "Hi.",
+"NodeName": "BasicDialogue",
+"Ref": "plz",
+"next": "End"
+} ],
+"start_index": 0
+}
+
+[node name="Town1BartenderDialogue" type="Node"]
+
+[node name="Dialogue" type="Node" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
+DialogueResource = SubResource( 1 )

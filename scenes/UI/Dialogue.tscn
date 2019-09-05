@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/controls/dialogue_manager.gd" type="Script" id=1]
+[ext_resource path="res://scripts/controls/dialogue_display.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player:self_modulate")
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "values": [ Vector2( 25, 0 ), Vector2( 8, 20 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "npc_fade"
 length = 0.3
 tracks/0/type = "value"
@@ -62,7 +62,6 @@ tracks/1/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-file_name = "res://dialogues/town1/dialogue_1.json"
 
 [node name="Player" type="Sprite" parent="."]
 self_modulate = Color( 0.309804, 0.309804, 0.309804, 1 )
@@ -79,10 +78,10 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/player_fade = SubResource( 2 )
+anims/player_fade = SubResource( 1 )
 
 [node name="AnimationNPC" type="AnimationPlayer" parent="."]
-anims/npc_fade = SubResource( 3 )
+anims/npc_fade = SubResource( 2 )
 
 [node name="DialogueUI" type="Panel" parent="."]
 margin_top = 232.0
